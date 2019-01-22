@@ -8,9 +8,15 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "massive": "^5.7.3",
     "vue": "^2.5.21",
     "vuetify": "^1.4.2"
   },
+  "main": "server/index.js",
+  "proxy": "http://localhost:4000",
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.2.0",
     "@vue/cli-plugin-eslint": "^3.2.0",
