@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-    <Dashboard/>
-    <Wizard/>
+    <router-view :key="$route.fullPath"></router-view>
   </div>
 </template>
 
