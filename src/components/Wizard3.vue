@@ -5,51 +5,24 @@
       <v-card ref="form">
         <v-card-text>
           <v-text-field
-            ref="name"
-            v-model="name"
+            ref="mortgageAmt"
+            v-model="mortgageAmt"
             :rules="[() => !!name || 'This field is required']"
             :error-messages="errorMessages"
-            label="Full Name"
-            placeholder="John Doe"
+            label="Monthly Mortgage"
+            placeholder="How much do you pay?"
             required
           ></v-text-field>
           <v-text-field
-            ref="address"
-            :rules="[
-              () => !!address || 'This field is required',
-              () => !!address && address.length <= 25 || 'Address must be less than 25 characters',
-              addressCheck
-            ]"
-            v-model="address"
-            label="Address Line"
-            placeholder="Snowy Rock Pl"
-            counter="25"
+            ref="desRent"
+            v-model="desRent"
+            :rules="[() => !!name || 'This field is required']"
+            :error-messages="errorMessages"
+            label="Desired Rent"
+            placeholder="How much would you rent it for?"
             required
           ></v-text-field>
-          <v-text-field
-            ref="city"
-            :rules="[() => !!city || 'This field is required', addressCheck]"
-            v-model="city"
-            label="City"
-            placeholder="El Paso"
-            required
-          ></v-text-field>
-          <v-text-field
-            ref="state"
-            v-model="state"
-            :rules="[() => !!state || 'This field is required']"
-            label="State/Province/Region"
-            required
-            placeholder="TX"
-          ></v-text-field>
-          <v-text-field
-            ref="zip"
-            :rules="[() => !!zip || 'This field is required']"
-            v-model="zip"
-            label="ZIP / Postal Code"
-            required
-            placeholder="79938"
-          ></v-text-field>
+          
         </v-card-text>
         <v-divider class="mt-5"></v-divider>
         <v-card-actions>
@@ -83,22 +56,16 @@
 export default {
   data: () => ({
     errorMessages: "",
-    name: null,
-    address: null,
-    city: null,
-    state: null,
-    zip: null,
+    mortgageAmt: null,
+    desRent: null,
     formHasErrors: false
   }),
 
   computed: {
     form() {
       return {
-        name: this.name,
-        address: this.address,
-        city: this.city,
-        state: this.state,
-        zip: this.zip
+        mortgageAmt: this.mortgageAmt,
+        desRent: this.desRent
       };
     }
   },
@@ -111,8 +78,7 @@ export default {
 
   methods: {
     addressCheck() {
-      this.errorMessages =
-        this.address && !this.name ? "Hey! I'm required" : "";
+      this.errorMessages = !this.mortgageAmt ? "Hey! I'm required" : "";
 
       return true;
     },

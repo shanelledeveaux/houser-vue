@@ -14,6 +14,18 @@ export default new Router({
       component: () => import("./components/Wizard.vue")
     },
     {
+      path: "/wizard2",
+      name: "wizard2",
+
+      component: () => import("./components/Wizard2.vue")
+    },
+    {
+      path: "/wizard3",
+      name: "wizard3",
+
+      component: () => import("./components/Wizard3.vue")
+    },
+    {
       path: "/",
       name: "dashboard",
 
