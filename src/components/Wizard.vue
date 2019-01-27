@@ -71,7 +71,9 @@
               <span>Refresh form</span>
             </v-tooltip>
           </v-slide-x-reverse-transition>
+          <router-link to="/wizard2">
           <v-btn color="primary" flat @click="submit">Next</v-btn>
+          </router-link>
         </v-card-actions>
       </v-card>
     </v-flex>

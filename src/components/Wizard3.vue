@@ -44,7 +44,9 @@
               <span>Refresh form</span>
             </v-tooltip>
           </v-slide-x-reverse-transition>
-          <v-btn color="primary" flat @click="submit">Next</v-btn>
+          <router-link to="/">
+          <v-btn color="primary" flat @click="submit">Submit</v-btn>
+          </router-link>
         </v-card-actions>
       </v-card>
     </v-flex>
