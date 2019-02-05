@@ -36,7 +36,7 @@
           ></v-text-field>
           <v-text-field
             ref="state"
-            v-model="state"
+            v-model="userState"
             :rules="[() => !!state || 'This field is required']"
             label="State/Province/Region"
             required
@@ -94,14 +94,13 @@ export default {
   }),
 
   computed: {
-    form() {
-      return {
-        name: this.name,
-        address: this.address,
-        city: this.city,
-        state: this.state,
-        zip: this.zip
-      };
+    name: {
+      set(name) {
+        this.$store.commit("SET_NAME", { name });
+      },
+      get() {
+        return this.$store.state.name;
+      }
     }
   },
 
