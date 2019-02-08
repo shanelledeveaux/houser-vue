@@ -55,17 +55,20 @@
 
 <script>
 export default {
-  data: () => ({
-    errorMessages: "",
-    imgUrl: "",
-    formHasErrors: false
-  }),
+  //   data: () => ({
+  //     errorMessages: "",
+  //     imgUrl: "",
+  //     formHasErrors: false
+  //   }),
 
   computed: {
-    form() {
-      return {
-        imgUrl: this.imgUrl
-      };
+    imgUrl: {
+      set(imageurl) {
+        this.$store.commit("SET_IMAGEURL", imageurl);
+      },
+      get() {
+        return this.$store.state.imageurl;
+      }
     }
   },
 

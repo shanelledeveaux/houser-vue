@@ -6,7 +6,7 @@
         <v-card-text>
           <v-text-field
             ref="mortgageAmt"
-            v-model="mortgageAmt"
+            v-model="mortgage"
             :rules="[() => !!name || 'This field is required']"
             :error-messages="errorMessages"
             label="Monthly Mortgage"
@@ -15,7 +15,7 @@
           ></v-text-field>
           <v-text-field
             ref="desRent"
-            v-model="desRent"
+            v-model="rent"
             :rules="[() => !!name || 'This field is required']"
             :error-messages="errorMessages"
             label="Desired Rent"
@@ -64,11 +64,27 @@ export default {
   }),
 
   computed: {
-    form() {
-      return {
-        mortgageAmt: this.mortgageAmt,
-        desRent: this.desRent
-      };
+    // form() {
+    //   return {
+    //     mortgageAmt: this.mortgageAmt,
+    //     desRent: this.desRent
+    //   };
+    // }
+    mortgage: {
+      set(mortgage) {
+        this.$store.commit("SET_MORTGAGE", mortgage);
+      },
+      get() {
+        return this.$store.state.mortgage;
+      }
+    },
+    rent: {
+      set(rent) {
+        this.$store.commit("SET_RENT", rent);
+      },
+      get() {
+        return this.$store.state.rent;
+      }
     }
   },
 

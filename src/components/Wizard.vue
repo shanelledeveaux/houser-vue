@@ -83,23 +83,55 @@
 
 <script>
 export default {
-  data: () => ({
-    errorMessages: "",
-    name: null,
-    address: null,
-    city: null,
-    state: null,
-    zip: null,
-    formHasErrors: false
-  }),
+  //   data: () => ({
+  //     errorMessages: "",
+  //     name: null,
+  //     address: null,
+  //     city: null,
+  //     state: null,
+  //     zip: null,
+  //     formHasErrors: false
+  //   }),
 
   computed: {
     name: {
       set(name) {
-        this.$store.commit("SET_NAME", { name });
+        this.$store.commit("SET_NAME", name);
       },
       get() {
         return this.$store.state.name;
+      }
+    },
+    address: {
+      set(address) {
+        this.$store.commit("SET_ADDRESS", address);
+      },
+      get() {
+        return this.$store.state.address;
+      }
+    },
+    city: {
+      set(city) {
+        this.$store.commit("SET_CITY", city);
+      },
+      get() {
+        return this.$store.state.city;
+      }
+    },
+    userState: {
+      set(userState) {
+        this.$store.commit("SET_USERSTATE", userState);
+      },
+      get() {
+        return this.$store.state.userState;
+      }
+    },
+    zip: {
+      set(zip) {
+        this.$store.commit("SET_ZIP", zip);
+      },
+      get() {
+        return this.$store.state.zip;
       }
     }
   },
