@@ -47,35 +47,46 @@ export default new Vuex.Store({
   },
   actions: {
     setName(context, name) {
-      this.commit("SET_NAME", action.payload.name);
+      this.commit("SET_NAME", name);
     },
     setAddress(context, address) {
-      this.commit("SET_ADDRESS", action.payload.address);
+      this.commit("SET_ADDRESS", address);
     },
     setCity(context, city) {
-      this.commit("SET_CITY", action.payload.city);
+      this.commit("SET_CITY", city);
     },
-    setUserState(context, userstate) {
-      this.commit("SET_STATE", action.payload.userState);
+    setUserState(context, userState) {
+      this.commit("SET_STATE", userState);
     },
     setZipcode(context, zipcode) {
-      this.commit("SET_ZIPCODE", action.payload.zipcode);
+      this.commit("SET_ZIPCODE", zipcode);
     },
     setImageUrl(context, imageurl) {
-      this.commit("SET_IMAGEURL", action.payload.imageurl);
+      this.commit("SET_IMAGEURL", imageurl);
     },
     setMortgage(context, mortgage) {
-      this.commit("SET_MORTGAGE", action.payload.mortgage);
+      this.commit("SET_MORTGAGE", mortgage);
     },
     setRent(context, rent) {
-      this.commit("SET_RENT", action.payload.rent);
+      this.commit("SET_RENT", rent);
     },
 
-    addHouse(context, house) {
-      axios.post("/api/houses", house).then(res => {
-        //console.log(res.data)
-        this.commit("ADD_HOUSE", res.data);
-      });
+    addHouse() {
+      axios
+        .post("/api/newhouse", {
+          name: this.state.name,
+          address: this.state.address,
+          city: this.state.city,
+          userState: this.state.userState,
+          zipcode: this.state.zipcode,
+          imageurl: this.state.imageurl,
+          mortgage: this.state.mortgage,
+          rent: this.state.rent
+        })
+        .then(res => {
+          console.log(res.data);
+          // this.commit("ADD_HOUSE", res.data);
+        });
     }
   }
 });

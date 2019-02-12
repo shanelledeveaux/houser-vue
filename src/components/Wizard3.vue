@@ -45,7 +45,7 @@
             </v-tooltip>
           </v-slide-x-reverse-transition>
           <router-link to="/">
-          <v-btn color="primary" flat @click="submit">Submit</v-btn>
+          <v-btn color="primary" flat @click="addHouse">Submit</v-btn>
           </router-link>
         </v-card-actions>
       </v-card>
@@ -62,6 +62,12 @@ export default {
     desRent: null,
     formHasErrors: false
   }),
+
+  methods: {
+    addHouse() {
+      this.$store.commit.addHouse();
+    }
+  },
 
   computed: {
     // form() {
