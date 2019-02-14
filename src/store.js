@@ -78,7 +78,7 @@ export default new Vuex.Store({
           address: this.state.address,
           city: this.state.city,
           userState: this.state.userState,
-          zipcode: this.state.zipcode,
+          zipcode: this.state.zip,
           imageurl: this.state.imageurl,
           mortgage: this.state.mortgage,
           rent: this.state.rent
