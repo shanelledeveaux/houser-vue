@@ -5,7 +5,11 @@
       <v-icon>add</v-icon>
     </v-btn>
     </router-link>
-        <House/>
+        <House
+        v-for="house in houseList"
+        v-bind:house="house"
+        v-bind:key="house.id"
+      ></House>
     </div>
 </template>
 
@@ -15,6 +19,15 @@ import House from "./House.vue";
 export default {
   components: {
     House
+  },
+  data: () => ({}),
+  computed: {
+    houseList() {
+      return this.$store.state.houses;
+    }
+  },
+  beforeMount() {
+    this.$store.dispatch("getHouses");
   }
 };
 </script>

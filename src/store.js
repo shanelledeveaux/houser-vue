@@ -43,6 +43,9 @@ export default new Vuex.Store({
     },
     ADD_HOUSE(state, houses) {
       state.houses = houses;
+    },
+    GET_HOUSES(state, houses) {
+      state.houses = houses;
     }
   },
   actions: {
@@ -72,21 +75,19 @@ export default new Vuex.Store({
     },
 
     addHouse() {
-      axios
-        .post("/api/newhouse", {
-          name: this.state.name,
-          address: this.state.address,
-          city: this.state.city,
-          userState: this.state.userState,
-          zipcode: this.state.zip,
-          imageurl: this.state.imageurl,
-          mortgage: this.state.mortgage,
-          rent: this.state.rent
-        })
-        .then(res => {
-          console.log(res.data);
-          // this.commit("ADD_HOUSE", res.data);
-        });
+      axios.post("/api/newhouse", {
+        name: this.state.name,
+        address: this.state.address,
+        city: this.state.city,
+        userState: this.state.userState,
+        zipcode: this.state.zip,
+        imageurl: this.state.imageurl,
+        mortgage: this.state.mortgage,
+        rent: this.state.rent
+      });
+    },
+    getHouses() {
+      axios.get("/api/houses").then(res => this.commit("GET_HOUSES", res.data));
     }
   }
 });

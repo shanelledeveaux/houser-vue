@@ -37,7 +37,7 @@
           <v-text-field
             ref="state"
             v-model="userState"
-            :rules="[() => !!state || 'This field is required']"
+            :rules="[() => !!userState || 'This field is required']"
             label="State/Province/Region"
             required
             placeholder="TX"
