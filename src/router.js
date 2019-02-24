@@ -30,6 +30,12 @@ export default new Router({
       name: "dashboard",
 
       component: () => import("./components/Dashboard.vue")
+    },
+    {
+      path: "/house/:id",
+      name: "fullhouse",
+
+      component: () => import("./components/FullHouse.vue")
     }
   ]
 });
